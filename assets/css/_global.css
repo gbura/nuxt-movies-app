@@ -1,0 +1,9 @@
+@font-face {
+	font-family: OutfitLight, 'sans-serif';
+	src: url('../fonts/Outfit-Light.ttf');
+}
+
+@font-face {
+	font-family: OutfitMedium, 'sans-serif';
+	src: url('../fonts/Outfit-Medium.ttf');
+}
