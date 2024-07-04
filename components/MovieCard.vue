@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<img :src="slide.thumbnail.trending.large" :alt="slide.title" class="w-full" />
+	<div class="w-full lg:w-[400px] cursor-pointer">
+		<img :src="slide.thumbnail.trending.large" :alt="slide.title" class="rounded-xl" />
 	</div>
 </template>
 
