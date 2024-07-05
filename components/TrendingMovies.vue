@@ -10,8 +10,8 @@
 					delay: 1000,
 				}"
 				:breakpoints="sliderBreakpoints">
-				<SwiperSlide v-for="(slide, idx) in trendingMovies" :key="idx">
-					<MovieCard :slide="slide" />
+				<SwiperSlide v-for="(item, idx) in trendingMovies" :key="idx">
+					<MovieCard :item="item" />
 				</SwiperSlide>
 			</Swiper>
 		</div>
@@ -41,11 +41,12 @@ const sliderBreakpoints: SliderBreakpoints = {
 		slidesPerView: 2,
 	},
 	1800: {
-		spaceBetween: -900,
+		spaceBetween: -950,
 		slidesPerView: 2,
 	},
 }
 
 const db = database as APIResponse[]
+
 const trendingMovies = db.filter((movie: APIResponse) => movie.isTrending)
 </script>
