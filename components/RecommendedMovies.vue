@@ -1,5 +1,5 @@
 <template>
-	<div class="lg:ml-4">
+	<div class="lg:ml-4 z-10">
 		<h1 class="text-white text-2xl my-6">Recommended for you</h1>
 
 		<div class="flex flex-wrap justify-between gap-10 w-full">

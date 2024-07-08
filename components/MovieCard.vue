@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full lg:w-[400px] relative">
+	<div class="w-full lg:w-[400px] relative xl:static">
 		<img :src="item.thumbnail.regular.large" :alt="item.title" class="rounded-xl" />
 		<div
 			@click="bookmarkMovie"
@@ -7,8 +7,10 @@
 			<img v-if="!isBookmarked" src="../assets/images/icon-bookmark-empty.svg" alt="" />
 			<img v-else src="../assets/images/icon-bookmark-full.svg" alt="" />
 		</div>
-		<div class="flex flex-col absolute bottom-4 left-4">
-			<ul class="flex text-neutral-200 text-sm custom-dots">
+		<div
+			class="flex flex-col absolute bottom-4 left-4"
+			:class="{ 'xl:static': !item.isTrending, 'xl:absolute': item.isTrending }">
+			<ul class="flex text-neutral-200 text-sm custom-dots" :class="{ 'xl:mt-2 xl:text-xs': !item.isTrending }">
 				<li>{{ item.year }}</li>
 				<li class="flex items-center gap-1">
 					<img

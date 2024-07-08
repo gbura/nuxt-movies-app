@@ -24,7 +24,7 @@
 				<img src="../assets/images/image-avatar.png" class="w-[30px]" @click="handleOpenModal" />
 				<div
 					v-if="isOpen"
-					class="absolute w-[120px] bg-lighterBlue top-12 -right-4 rounded-md text-white lg:-top-10 lg:left-12">
+					class="absolute w-[120px] bg-lighterBlue top-12 -right-4 rounded-md text-white lg:-top-10 lg:left-12 z-10">
 					<button class="w-full p-2 hover:text-gray">Login</button>
 					<hr class="text-gray" />
 					<button class="w-full p-2 hover:text-gray">Logout</button>
