@@ -14,7 +14,12 @@
 const route = useRoute()
 const router = useRouter()
 const placeholder = ref<string>('')
-const searchQuery = ref<string>('')
+const movieStore = useMovieStore()
+
+const searchQuery = ref<string>(route.query.search?.toString() || '')
+watch(searchQuery, (newQuery:string) => {
+	movieStore.searchQuery = newQuery
+})
 
 const updatePlaceholder = () => {
 	if (route.name === 'bookmarks') {
@@ -27,7 +32,7 @@ const updatePlaceholder = () => {
 const filterMovies = () => {
 	router.push({
 		query: {
-			search: searchQuery.value
+			search: searchQuery.value,
 		},
 	})
 }

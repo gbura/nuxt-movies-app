@@ -1,6 +1,12 @@
 <template>
 	<div class="lg:ml-4">
-		<h1 class="text-white text-2xl my-6">Trending</h1>
+		<h1 class="text-white text-2xl my-6">
+			{{
+				movieStore.filteredTrendingMovies.length > 0 && movieStore.counter >= 0 && movieStore.searchQuery
+					? `Found ${movieStore.counter} movies`
+					: 'Trending'
+			}}
+		</h1>
 		<div>
 			<Swiper
 				:slides-per-view="1"
@@ -10,7 +16,7 @@
 					delay: 1000,
 				}"
 				:breakpoints="sliderBreakpoints">
-				<SwiperSlide v-for="(item, idx) in trendingMovies" :key="idx">
+				<SwiperSlide v-for="(item, idx) in filteredTrendingMovies" :key="idx">
 					<MovieCard :item="item" />
 				</SwiperSlide>
 			</Swiper>
@@ -19,8 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import database from '@/data.json'
-import type { APIResponse } from '~/types/APIResponse'
+import { useMovieStore } from '../stores/useMovieStore'
 import type { SliderBreakpoints } from '~/types/SliderBreakpoints'
 
 const sliderBreakpoints: SliderBreakpoints = {
@@ -46,7 +51,6 @@ const sliderBreakpoints: SliderBreakpoints = {
 	},
 }
 
-const db = database as APIResponse[]
-
-const trendingMovies = db.filter((movie: APIResponse) => movie.isTrending)
+const movieStore = useMovieStore()
+const filteredTrendingMovies = computed(() => movieStore.filteredTrendingMovies)
 </script>

@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full lg:w-[400px] relative xl:static">
+	<div class="w-full lg:w-[400px] relative">
 		<img :src="item.thumbnail.regular.large" :alt="item.title" class="rounded-xl" />
 		<div
 			@click="bookmarkMovie"
