@@ -1,7 +1,10 @@
 <template>
 	<div class="lg:ml-4">
 		<!-- Trending movies section -->
-		<h1 class="text-white text-2xl my-6">Trending</h1>
+		<h1 class="text-white text-2xl my-6" v-if="movieStore.searchQuery">
+			Found {{ movieStore.totalFilteredCount }} movies.
+		</h1>
+		<h1 class="text-white text-2xl my-6" v-if="!movieStore.searchQuery">Trending</h1>
 		<div>
 			<Swiper
 				:slides-per-view="1"
@@ -11,15 +14,19 @@
 					delay: 1000,
 				}"
 				:breakpoints="sliderBreakpoints">
-				<SwiperSlide v-for="(item, idx) in filteredTrendingMovies" :key="idx">
+				<SwiperSlide v-for="(item, idx) in movieStore.filteredTrendingMovies" :key="idx">
 					<MovieCard :item="item" />
 				</SwiperSlide>
 			</Swiper>
 		</div>
 		<!-- Recommended movies section -->
-		<h1 class="text-white text-2xl my-6">Recommended for you</h1>
+		<h1 class="text-white text-2xl my-6" v-if="!movieStore.searchQuery">Recommended for you</h1>
 		<div class="flex flex-wrap justify-between gap-10 w-full">
-			<MovieCard v-for="(item, idx) in filteredRecommendedMovies" :key="idx" :item="item" class="md:w-[350px]" />
+			<MovieCard
+				v-for="(item, idx) in movieStore.filteredRecommendedMovies"
+				:key="idx"
+				:item="item"
+				class="md:w-[350px]" />
 		</div>
 	</div>
 </template>
@@ -27,6 +34,8 @@
 <script setup lang="ts">
 import { useMovieStore } from '../stores/useMovieStore'
 import type { SliderBreakpoints } from '~/types/SliderBreakpoints'
+
+const movieStore = useMovieStore()
 
 const sliderBreakpoints: SliderBreakpoints = {
 	768: {
@@ -50,9 +59,4 @@ const sliderBreakpoints: SliderBreakpoints = {
 		slidesPerView: 2,
 	},
 }
-
-const movieStore = useMovieStore()
-
-const filteredTrendingMovies = computed(() => movieStore.filteredTrendingMovies)
-const filteredRecommendedMovies = computed(() => movieStore.filteredRecommendedMovies)
 </script>

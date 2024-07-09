@@ -32,5 +32,9 @@ export const useMovieStore = defineStore('movie', () => {
 		return filteredMovies
 	})
 
-	return { searchQuery, filteredRecommendedMovies, filteredTrendingMovies, counter }
+	const totalFilteredCount = computed(() => {
+		return filteredRecommendedMovies.value.length + filteredTrendingMovies.value.length
+	})
+
+	return { searchQuery, filteredRecommendedMovies, filteredTrendingMovies, totalFilteredCount }
 })
