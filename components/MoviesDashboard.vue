@@ -1,12 +1,7 @@
 <template>
 	<div class="lg:ml-4">
-		<h1 class="text-white text-2xl my-6">
-			{{
-				movieStore.filteredTrendingMovies.length > 0 && movieStore.counter >= 0 && movieStore.searchQuery
-					? `Found ${movieStore.counter} movies`
-					: 'Trending'
-			}}
-		</h1>
+		<!-- Trending movies section -->
+		<h1 class="text-white text-2xl my-6">Trending</h1>
 		<div>
 			<Swiper
 				:slides-per-view="1"
@@ -20,6 +15,11 @@
 					<MovieCard :item="item" />
 				</SwiperSlide>
 			</Swiper>
+		</div>
+		<!-- Recommended movies section -->
+		<h1 class="text-white text-2xl my-6">Recommended for you</h1>
+		<div class="flex flex-wrap justify-between gap-10 w-full">
+			<MovieCard v-for="(item, idx) in filteredRecommendedMovies" :key="idx" :item="item" class="md:w-[350px]" />
 		</div>
 	</div>
 </template>
@@ -52,5 +52,7 @@ const sliderBreakpoints: SliderBreakpoints = {
 }
 
 const movieStore = useMovieStore()
+
 const filteredTrendingMovies = computed(() => movieStore.filteredTrendingMovies)
+const filteredRecommendedMovies = computed(() => movieStore.filteredRecommendedMovies)
 </script>

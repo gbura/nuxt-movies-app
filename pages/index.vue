@@ -1,8 +1,7 @@
 <template>
 	<div>
 		<SearchInput />
-		<TrendingMovies />
-		<RecommendedMovies />
+		<MoviesDashboard />
 	</div>
 </template>
 
