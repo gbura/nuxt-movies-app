@@ -1,5 +1,4 @@
 <template>
-	<SearchInput />
 	<h1 class="text-white text-2xl my-6 ml-4" v-if="movieStore.searchQuery">
 		Found {{ movieStore.totalFilteredCount }} results for '{{ movieStore.searchQuery }}'
 	</h1>

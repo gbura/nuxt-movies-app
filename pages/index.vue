@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<SearchInput />
 		<MoviesDashboard />
 	</div>
 </template>
