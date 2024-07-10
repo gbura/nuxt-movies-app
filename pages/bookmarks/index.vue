@@ -17,4 +17,8 @@ const db = database as APIResponse[]
 const movieStore = useMovieStore()
 
 const bookmarkedMovies = db.filter((item: APIResponse) => item.isBookmarked === true)
+
+useHead({
+	title: 'Bookmarked Movies',
+})
 </script>
