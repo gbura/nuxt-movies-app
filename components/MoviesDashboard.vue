@@ -2,23 +2,23 @@
 	<div class="lg:ml-4">
 		<!-- Trending movies section -->
 		<h1 class="text-white text-2xl my-6" v-if="movieStore.searchQuery">
-			Found {{ movieStore.totalFilteredCount }} movies.
+			Found {{ movieStore.totalFilteredCount }} results for '{{ movieStore.searchQuery }}'
 		</h1>
 		<h1 class="text-white text-2xl my-6" v-if="!movieStore.searchQuery">Trending</h1>
-		<div>
-			<Swiper
-				:slides-per-view="1"
-				:loop="true"
-				:space-between="10"
-				:autoplay="{
-					delay: 1000,
-				}"
-				:breakpoints="sliderBreakpoints">
-				<SwiperSlide v-for="(item, idx) in movieStore.filteredTrendingMovies" :key="idx">
-					<MovieCard :item="item" />
-				</SwiperSlide>
-			</Swiper>
-		</div>
+
+		<Swiper
+			:slides-per-view="1"
+			:loop="false"
+			:space-between="10"
+			:autoplay="{
+				delay: 1000,
+			}"
+			:breakpoints="sliderBreakpoints">
+			<SwiperSlide v-for="(item, idx) in movieStore.filteredTrendingMovies" :key="idx">
+				<MovieCard :item="item" />
+			</SwiperSlide>
+		</Swiper>
+
 		<!-- Recommended movies section -->
 		<h1 class="text-white text-2xl my-6" v-if="!movieStore.searchQuery">Recommended for you</h1>
 		<div class="flex flex-wrap justify-between gap-10 w-full">
