@@ -1,9 +1,11 @@
 <template>
 	<div>
-		<SearchInput />
-		<TrendingMovies />
-		<RecommendedMovies />
+		<MoviesDashboard />
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useHead({
+	title: 'Movies Dashboard',
+})
+</script>

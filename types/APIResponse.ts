@@ -15,5 +15,5 @@ export type APIResponse = {
 	category: string
 	rating: string
 	isTrending: boolean
-	isBookmarked?: undefined
+	isBookmarked: boolean
 }

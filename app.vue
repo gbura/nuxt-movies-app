@@ -1,6 +1,7 @@
 <template>
 	<NuxtLayout>
 		<main class="w-full overflow-hidden">
+			<SearchInput />
 			<NuxtPage />
 		</main>
 	</NuxtLayout>
