@@ -1,75 +1,20 @@
-# Nuxt 3 Minimal Starter
+# Nuxt Movies Dashboard
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Fully responsive application for searching movies. Users can view detailed information about each movie and filter them by typing matching words.
+**Project isn't finished yet. Will be continued...**
 
-## Setup
+## Project preview
 
-Make sure to install the dependencies:
+<details>
+  <summary>Click to view images</summary>
 
-```bash
-# npm
-npm install
+### Desktop version
 
-# pnpm
-pnpm install
+![alt text](/public/overviewImages/desktop1.png)
+![alt text](/public/overviewImages/desktop2.png)
 
-# yarn
-yarn install
+### Mobile version
 
-# bun
-bun install
-```
+![alt text](/public/overviewImages/mobile1.png)
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+</details>
